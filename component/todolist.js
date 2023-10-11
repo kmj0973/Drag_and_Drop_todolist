@@ -1,5 +1,5 @@
 const todoInput = document.querySelector(".todoList-form input");
-const todolist = document.querySelector(".list");
+const todolist = document.querySelector(".todolist");
 const addBtn = document.querySelector(".todoList-form button");
 
 const saveTodo = (e) => {

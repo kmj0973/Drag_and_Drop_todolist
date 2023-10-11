@@ -28,11 +28,47 @@
   border-radius: 0.5em;
   border: 3px solid black;
 }
-.list {
+.todolist {
   max-height: 85%;
   overflow-y: auto;
   border-radius: 0.25em;
+  padding-bottom: 5px;
+}
+.todolist li {
+  transition: all 1s;
+  border-radius: 0.25em;
+}
+.todolist li:hover {
+  transition: all 1s;
 }
 .dragging {
   opacity: 0.8;
+  transition: all 1s;
+}
+.category {
+  height: 85%;
+  overflow-y: auto;
+  border-radius: 0.25em;
+  padding-bottom: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.category li {
+  position: relative;
+  transition: all 1s;
+  border-radius: 0.25em;
+  width: 45%;
+  height: 30%;
+  margin: 5px;
+}
+.cate-name {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.cate-delete {
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
