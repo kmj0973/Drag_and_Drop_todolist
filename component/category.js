@@ -1,10 +1,11 @@
 const cateInput = document.querySelector(".category-form input");
 const cates = document.querySelector(".category");
 const addCateBtn = document.querySelector(".category-form button");
+const bodyEl = document.querySelector("body");
 
 const saveCate = (e) => {
   const li = `<li
-  class="list-group-item d-flex justify-content-between align-items-center mx-1"
+  class="list-group-item d-flex justify-content-between align-items-center mx-1 category-list"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -20,6 +21,32 @@ const saveCate = (e) => {
   </svg>
   <span class="cate-name">${cateInput.value}</span
   ><i class="far fa-trash-alt delete cate-delete"></i>
+  <div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">${cateInput.value}</h5>
+        <i class="bi bi-x-lg modal-delete"></i>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group mx-auto pt-3 category-todos">
+          <li
+            draggable="true"
+            class="list-group-item d-flex justify-content-between align-items-center mx-1"
+          >
+            <span>hi</span> <i class="far fa-trash-alt delete"></i>
+          </li>
+          <li
+            draggable="true"
+            class="list-group-item d-flex justify-content-between align-items-center mx-1"
+          >
+            <span>hello</span> <i class="far fa-trash-alt delete"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 </li>`;
 
   cates.innerHTML += li;
@@ -35,6 +62,23 @@ const onClickAddCate = (e) => {
 cates.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete")) {
     e.target.parentElement.remove();
+  }
+});
+
+cates.addEventListener("click", (e) => {
+  if (e.target.classList.contains("bi-folder")) {
+    const display = e.target.parentElement.querySelector(".modal");
+    console.log(e.target.parentElement);
+    console.log(display);
+    display.classList.toggle("show");
+  }
+  if (e.target.classList.contains("modal-delete")) {
+    const display =
+      e.target.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(
+        ".modal"
+      );
+    console.log(display);
+    display.classList.toggle("show");
   }
 });
 
