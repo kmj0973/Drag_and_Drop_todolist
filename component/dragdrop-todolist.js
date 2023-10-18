@@ -26,13 +26,3 @@ todo.addEventListener("dragover", (e) => {
     }
   }
 });
-// todo.addEventListener("drop", (e) => {
-//   //드롭할 시 이벤트 발생, drop이벤트는 dragover과 같이 사용되어야함
-//   e.preventDefault();
-//   if (e.target.classList.contains("list-group-item")) {
-//     //리스트내에 요소에만 반응하도록 하는 조건문
-//     console.log(e.clientY);
-//     console.log(e.target.getBoundingClientRect());
-//     console.log(todo.getBoundingClientRect());
-//   }
-// });

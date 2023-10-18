@@ -8,6 +8,7 @@ const saveCate = (e) => {
   class="list-group-item d-flex justify-content-between align-items-center mx-1 category-list"
 >
   <svg
+    value=${cateInput.value}
     xmlns="http://www.w3.org/2000/svg"
     width="140"
     height="140"
@@ -21,7 +22,7 @@ const saveCate = (e) => {
   </svg>
   <span class="cate-name">${cateInput.value}</span
   ><i class="far fa-trash-alt delete cate-delete"></i>
-  <div class="modal" tabindex="-1">
+<div class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -29,20 +30,9 @@ const saveCate = (e) => {
         <i class="bi bi-x-lg modal-delete"></i>
       </div>
       <div class="modal-body">
-        <ul class="list-group mx-auto pt-3 category-todos">
-          <li
-            draggable="true"
-            class="list-group-item d-flex justify-content-between align-items-center mx-1"
-          >
-            <span>hi</span> <i class="far fa-trash-alt delete"></i>
-          </li>
-          <li
-            draggable="true"
-            class="list-group-item d-flex justify-content-between align-items-center mx-1"
-          >
-            <span>hello</span> <i class="far fa-trash-alt delete"></i>
-          </li>
-        </ul>
+         <ul class="list-group mx-auto pt-3 category-todos" id=${cateInput.value}>
+        
+          </ul>
       </div>
     </div>
   </div>
@@ -52,7 +42,7 @@ const saveCate = (e) => {
   cates.innerHTML += li;
 };
 
-const onClickAddCate = (e) => {
+const onClickAddCate = async (e) => {
   e.preventDefault();
   if (cateInput.value === "") return;
   saveCate();
@@ -68,8 +58,6 @@ cates.addEventListener("click", (e) => {
 cates.addEventListener("click", (e) => {
   if (e.target.classList.contains("bi-folder")) {
     const display = e.target.parentElement.querySelector(".modal");
-    console.log(e.target.parentElement);
-    console.log(display);
     display.classList.toggle("show");
   }
   if (e.target.classList.contains("modal-delete")) {
@@ -77,7 +65,6 @@ cates.addEventListener("click", (e) => {
       e.target.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(
         ".modal"
       );
-    console.log(display);
     display.classList.toggle("show");
   }
 });
